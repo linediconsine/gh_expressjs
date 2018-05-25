@@ -4,12 +4,15 @@ class GitHubClient {
 		this.superagent = superagent;
     }
 
+
+    /* Github redirect to login */
     routing_toLogin(GITHUB_CLIENT_ID,errors,res){
         res.render('login', { client_id :  GITHUB_CLIENT_ID, 
                               errors : errors});
         
     }
     
+    /* Github Oauth callback  */
     routing_callback(req,res,GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET,GITHUB_CODE) {
 		return this.superagent
 			//.query({ format: 'json' })
@@ -36,31 +39,7 @@ class GitHubClient {
 			});
 
     }
-    
-    routing_callback_a(res,GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET,GITHUB_CODE){
-
-        request.post(
-            'https://github.com/login/oauth/access_token',
-             { json: { "client_id" : GITHUB_CLIENT_ID,
-                      "client_secret" : GITHUB_CLIENT_SECRET,
-                      "code" : GITHUB_CODE,
-                      "accept" : "json"
-                     } },
-            function (error, response, body) {
-                if (!error && response.statusCode == 200) {
-                    if(body.scope == 'user:email'){
-                        console.log("User is correcting logged, with permission user:email");
-                        req.session.login = true;
-                        res.redirect('/');
-                    }
-                }else{
-                    console.log(error ? !!error : "" );
-                    this.routing_toLogin(GITHUB_CLIENT_ID,"We have had an error please re-try",res);
-                }
-            }
-        );
-    }
-
+    /* Routig managing for Search form */
     routing_search(res,queryRequest){
         this.gh_search(queryRequest,res)
 			.then((reply) => {
@@ -70,8 +49,7 @@ class GitHubClient {
 				res.render('index', { formdata: reply.pageData, results: reply.json , errors : [err]});
 			})
     }
-
-
+    /* Create PageData Object that will allow the form to mantain parameters */
     createPageData(query){
         let queryRequest = "";
         let pageData = {};
@@ -83,6 +61,7 @@ class GitHubClient {
         return pageData
     }
 
+    /* build Github API Search Query */
 	buildSearchQuery(query) {
 		let queryRequest = "";
 
@@ -97,18 +76,17 @@ class GitHubClient {
 		}
 
 		return queryRequest
-	}
+    }
+
+    /* Call Gihub API for search users */
 	gh_search(queryRequest) {
 		return this.superagent
-			//.query({ format: 'json' })
 			.get(`https://api.github.com/search/users?${this.buildSearchQuery(queryRequest)}`)
 			.set({
 				'User-Agent': 'Awesome-Octocat-App', //mondatory: need an User-Agent as per github documentation)
 				'Accept': 'application/vnd.github.v3.text-match+json'
 			})
-			// .set('Accept', 'application/json')
 			.then((res) => {
-				// console.log('GitHub res: ', res)
                 return { 
                          "json" : JSON.parse(res.text),
                          "pageData" : this.createPageData(queryRequest)

@@ -4,10 +4,8 @@ const path = require("path");
 const request = require("request");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-
 const superagent = require('superagent');
 const jest = require('jest');
-
 const GitHubClient = require('./github-client');
 
 // ## Edit this
