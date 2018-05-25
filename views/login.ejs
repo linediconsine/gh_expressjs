@@ -1,0 +1,13 @@
+<!--
+    https://developer.github.com/v3/guides/basics-of-authentication/
+    https://developer.github.com/v3/guides/basics-of-authentication/#registering-your-app-->
+<% include partials/header %>
+   
+    <article class="login">
+        <p>Hi, in order to use the search you will need to login thought github,</p>
+        <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%=client_id%>">
+        link to gihtub login</a>
+    </article>
+
+
+<% include partials/footer %>

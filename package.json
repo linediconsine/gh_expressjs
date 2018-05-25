@@ -1,0 +1,28 @@
+{
+  "name": "express_kpl",
+  "version": "1.0.0",
+  "description": "A simple test App",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Marco Amato",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "nodemon": "^1.17.5",
+    "request": "^2.87.0",
+    "superagent": "^3.8.3",
+    "superagent-mocker": "^0.5.2"
+  },
+  "devDependencies": {
+    "jest": "^23.0.0"
+  }
+}

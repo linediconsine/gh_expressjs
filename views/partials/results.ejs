@@ -1,0 +1,36 @@
+<div id="results">
+        <h2>Github search results</h2>
+        <h3>I found <%= results.items.length %> result<%= results.items.length > 1 ? "s" : "" %> searching Github account with in the name "<%= formdata.user %>", more than <%= formdata.repos %>  repo<%= formdata.repos > 1 ? "s" : "sitory" %>
+        <%= formdata.repos %> repository and more than  follower<%= formdata.follower > 1 ? "s" : "" %></h3>
+        <script>
+            function expand(IDselector){
+                console.log("expand on " + IDselector);
+                elem = document.getElementById(IDselector + "_more");
+                controller = document.getElementById(IDselector );
+                
+                elem_class = elem.className;
+                if(elem.className.indexOf("hide") != -1){
+                    elem.className = elem_class.replace(" hide","");
+                    elem.focus();
+                }else{
+                    elem.className  = elem_class + " hide";
+                    document.getElementById(IDselector)
+                    controller.focus()
+                }
+            }
+        </script>
+            <% results.items.forEach(function(user,index){ %>
+                    <section class="col<%= index % 2%>">
+                        <a id="t<%= index %>" href="#t<%= index %>_more" class="expaneder" onclick="expand('t<%= index %>')" aria-controls="t<%= index %>" aria-expanded="false">
+                            <span><h4><%=  user.login %></h4></span>
+                            <img src="<%= user.avatar_url %>" alt="Image avatar of <%=  user.login %>">
+                            
+                        </a>
+                        <section id="t<%= index %>_more" class="moreinfo hide" role="region" tabindex="-1" >
+                                <h5>More infor about <%=  user.login %> </h5>
+                                <div><a href="<%=  user.html_url %>">link to github profile</a></div>
+                                <div><span>score : <%=  user.score %> </span></div>
+                        </section>
+                    </section>
+            <% }) %>
+    </div>

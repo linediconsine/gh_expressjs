@@ -1,0 +1,38 @@
+<section>
+    <h1>Github search user form</h1>
+    <form method="GET" action="/">
+        <field>
+            <label for="username">Search user with name :</label>
+            <input required="required" id="username"  type="text" name="u" value="<%= formdata.user %>" />
+        </field>
+        <field>
+            <label for="repo">Search user with at least repos:</label>
+            <input type="range"
+                name="r"
+                id="repo" 
+                min="0"
+                max="100"
+                value="<%= formdata.repos ? formdata.repos : 0 %>"
+                step="1"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                />
+        </field>
+        <field>
+            <label for="follower">Search user with at least follower:</label>
+            <input type="range"
+                name="f"
+                id="repo" 
+                min="0"
+                max="100"
+                value="<%= formdata.follower ? formdata.follower : 0 %>"
+                step="1"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                />
+        </field>
+        <field>
+            <button>Search</button>
+        </field>
+    </form>
+</section>

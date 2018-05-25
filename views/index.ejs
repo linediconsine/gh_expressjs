@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+<!-- Header -->
+    <% if(results != ""){ %>
+        <a class="skipto" href="#results">Skip to results</a> 
+    <% } %>
+    <a class="logout" href="/logout">log out</a>
+
+<!-- Body -->
+    <% if(errors != ""){ %>
+        <% include partials/errors %>
+    <% } %>
+
+    <% include partials/searchform %>
+
+
+    <% if(results != ""){ %>
+        <% include partials/results %>
+    <% } %>
+
+<!-- Footer-->
+
+    <% include partials/footer %>
