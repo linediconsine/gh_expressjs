@@ -8,7 +8,7 @@ const superagent = require('superagent');
 const jest = require('jest');
 const GitHubClient = require('./github-client');
 
-// ## Edit this
+// ## Edit this 
 const SUPER_SECRET_KEY = "SUPER_SECRET_KEY" // TO-DO CRYPT BEFORE SHARE
 const GITHUB_CLIENT_ID = ""
 const GITHUB_CLIENT_SECRET = ""

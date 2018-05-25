@@ -12,7 +12,7 @@ class GitHubClient {
         
     }
     
-    /* Github Oauth callback  */
+    /* Github Oauth callback   */
     routing_callback(req,res,GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET,GITHUB_CODE) {
 		return this.superagent
 			//.query({ format: 'json' })
