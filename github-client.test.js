@@ -36,7 +36,6 @@ describe('githubClient', () => {
 
     });
 
-
 	test('githubClient shold initialize correctly', () => {
 
 		expect(() => {
@@ -86,9 +85,8 @@ describe('githubClient', () => {
 
 		return expect(actual).resolves.toEqual(expected);
 
-	});
-
-
+    });
+    
 
 
 })
