@@ -72,7 +72,7 @@ describe('githubClient', () => {
 
 		});
 
-		const actual = githubClient.gh_search({
+		const actual = githubClient.userSearch({
 			u: "testuser",
 			r: "1",
 			f: "2"
