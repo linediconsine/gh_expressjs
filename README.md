@@ -12,7 +12,7 @@ Using:
 Tutorial:
 https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
 
-## step 2 - Install all dependecies
+## step 2 - Install all the dependecies
 
 ```bash
 $ git clone https://github.com/linediconsine/gh_expressjs.git
