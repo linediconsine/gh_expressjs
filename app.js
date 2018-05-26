@@ -9,8 +9,8 @@ const GitHubClient = require('./github-client');
 
 // ## Edit this
 const SUPER_SECRET_KEY = "SUPER_SECRET_KEY"
-const GITHUB_CLIENT_ID = "7a0e85b210e5e329f136"
-const GITHUB_CLIENT_SECRET = "22aff51c513ffecfdea8362249ba32ec8d60ef28"
+const GITHUB_CLIENT_ID = ""
+const GITHUB_CLIENT_SECRET = ""
 
 
 // ## Set up express apps
