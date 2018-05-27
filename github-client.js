@@ -40,7 +40,7 @@ class GitHubClient {
                     github API return a 200 if access token is wrong, let manage this scenatio here
                 */
                
-                if(response.hasOwnProperty('error')){
+                if(response.body.hasOwnProperty('error')){
                     return Promise.reject(response.error)
                 }else{
                     return response
@@ -49,7 +49,7 @@ class GitHubClient {
               
             })
             .catch((err) => {
-                console.log('GitHubClient::oAuthAccessToken() success', response.err)
+                console.log('GitHubClient::oAuthAccessToken() success', err)
                 return Promise.reject(err)
 
             })

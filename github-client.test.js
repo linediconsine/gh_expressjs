@@ -1,6 +1,6 @@
 const GitHubClient = require('./github-client');
 const superagent = require('superagent');
-const superagent_mock = require('superagent-mocker')(superagent);
+const superagent_mock = require('superagent-mocker')(superagent); // Only for DEV env -- Installed with --save-dev
 
 
 describe('githubClient', () => {

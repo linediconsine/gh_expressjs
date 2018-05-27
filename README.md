@@ -28,7 +28,7 @@ $ cd gh_expressjs/
 $ npm install
 
 ```
-## step 3 - Configure App.js
+## step 3 - Configure Settings.js
 Edit in App.js configure follow fields:
 
 ```
