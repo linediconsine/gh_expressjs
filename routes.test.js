@@ -1,5 +1,25 @@
 const request = require('supertest'); // Only for DEV env -- Installed with npm install supertest --save-dev
 const app = require('./routes');
+const Settings = require('./settings'); // Github client API Calls
+
+
+describe('Settings', () => {
+    test('GITHUB_CLIENT_ID is not empty string', async () => {
+        const setting_GITHUB_CLIENT_ID = Settings.GITHUB_CLIENT_ID.length;
+        expect(setting_GITHUB_CLIENT_ID).toBeGreaterThan(0);
+    });
+
+    test('GITHUB_CLIENT_SECRET is not empty string', async () => {
+        const setting_GITHUB_CLIENT_SECRET = Settings.GITHUB_CLIENT_SECRET.length;
+        expect(setting_GITHUB_CLIENT_SECRET).toBeGreaterThan(0);
+    });
+
+    test('SUPER_SECRET_KEY is not empty string', async () => {
+        const setting_SUPER_SECRET_KEY = Settings.SUPER_SECRET_KEY.length;
+        expect(setting_SUPER_SECRET_KEY).toBeGreaterThan(0);
+    });
+
+})
 
 describe('Home page', () => {
     test('Home page - not logged redirect to login', async () => {
