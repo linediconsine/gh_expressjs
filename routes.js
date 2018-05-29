@@ -16,6 +16,9 @@ var sessionSettings = {
     cookie: {}
 }
 
+if(Settings.GITHUB_CLIENT_ID.length < 1 || Settings.GITHUB_CLIENT_SECRET.length < 1){
+    console.log("#Important: \n please confirgure Settings.js \n\n");
+}
 
 // ## Middleware & Configurations
 app.use(session(sessionSettings));
